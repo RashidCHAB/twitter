@@ -24,7 +24,7 @@ export default {
             likes: req.body.likes
         }, { new: true }).then((a) => {
             res.json(a)
-        })
+        })  
     },
     getTwitt: (req, res) => {
         Twitt.find().populate('comment').populate('user').populate('likes').then((a) => {
@@ -32,7 +32,7 @@ export default {
         })
     },
     getTwittById: (req, res) => {
-        Twitt.find({ twittId: req.params.id }).populate('comment').populate('user').populate('likes').then((a) => {
+        Twitt.find(req.params.id).populate('comment').populate('user').populate('likes').then((a) => {
             res.json(a)
         })
     },

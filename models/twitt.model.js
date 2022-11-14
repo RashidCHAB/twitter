@@ -12,7 +12,7 @@ const twitt = mongoose.Schema({
     text: String,
     likes: [{
         type: mongoose.SchemaTypes.ObjectId,
-        ref: 'Likes'
+        ref: 'User'
     }]
 })
 
