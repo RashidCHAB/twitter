@@ -3,17 +3,13 @@ import mongoose from "mongoose";
 const comment = mongoose.Schema({
     user: {
         type: mongoose.SchemaTypes.ObjectId,
-        ref: 'user'
+        ref: 'User'
     },
     twitt: {
         type: mongoose.SchemaTypes.ObjectId,
-        ref: 'twitt'
+        ref: 'Twitt'
     },
     text: String,
-    likes: [{
-        type: Number,
-        ref: 'likes'
-    }]
 })
 
 const Comment = mongoose.model('Comment', comment)

@@ -6,7 +6,6 @@ export default {
             user: req.body.user,
             twitt: req.body.twitt,
             text: req.body.text,
-            likes: req.body.likes
         }).then((a) => {
             res.json(a)
         })
@@ -26,15 +25,15 @@ export default {
             })
     },
     getComment: (req, res) => {
-        Comment.find().populate('twitt').populate('user').populate('likes').then((a) => { res.json(a) })
+        Comment.find().populate('twitt').populate('user').then((a) => { res.json(a) })
     },
     getCommentById: (req, res) => {
-        Comment.find(req.params.id).populate('twitt').populate('user').populate('likes').then((a) => { res.json(a) })
+        Comment.find({ commentId: req.params.id }).populate('twitt').populate('user').then((a) => { res.json(a) })
     },
-    addCommentByTwitt: (req, res) => {
-        Comment.find({ twitt: req.params.twittId }).populate('twitt').populate('user').populate('likes').then((a) => { res.json(a) })
+    getCommentByTwitt: (req, res) => {
+        Comment.find({ twitt: req.params.twittId }).populate('twitt').populate('user').then((a) => { res.json(a) })
     },
-    addCommentByUser: (req, res) => {
-        Comment.find({ user: req.params.userId }).populate('twitt').populate('user').populate('likes').then((a) => { res.json(a) })
+    getCommentByUser: (req, res) => {
+        Comment.find({ user: req.params.userId }).populate('twitt').populate('user').then((a) => { res.json(a) })
     }
 }

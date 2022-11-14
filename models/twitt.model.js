@@ -3,16 +3,16 @@ import mongoose from "mongoose";
 const twitt = mongoose.Schema({
     user: {
         type: mongoose.SchemaTypes.ObjectId,
-        ref: 'user'
+        ref: 'User'
     },
     comment: {
         type: mongoose.SchemaTypes.ObjectId,
-        ref: 'comment'
+        ref: 'Comment'
     },
     text: String,
     likes: [{
-        type: Number,
-        ref: 'likes'
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: 'Likes'
     }]
 })
 

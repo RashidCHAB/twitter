@@ -32,4 +32,5 @@ export default {
             res.json(a)
         })
      },
+     
 }
