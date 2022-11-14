@@ -10,10 +10,10 @@ const twitt = mongoose.Schema({
         ref: 'comment'
     },
     text: String,
-    likes: {
+    likes: [{
         type: Number,
-        default: 0
-    }
+        ref: 'likes'
+    }]
 })
 
 const Twitt = mongoose.model('Twitt', twitt)
